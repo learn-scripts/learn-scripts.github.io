@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Learn Russian Cyrillic (Пусский Кири́ллица Алфабит)</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Online quiz to learn and practice the Russian Cyrillic alphabet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="styles.css">
+		<script>
+			const charsets = [
+				{name:"vowels",
+				chars:[
+					"а", "a", "a",
+					"е", "ye", "ye",
+					"ё", "yo", "yo",
+					"и", "i", "i",
+					"й", "y", "i",
+					"о", "o", "o",
+					"у", "u", "u",
+					"ы", "y", "y",
+					"э", "e", "e",
+					"ю", "yu", "yu",
+					"я", "ya", "ya"], checked: true,},
+
+			{name:"consonants",
+				chars:[
+					"б", "b", "be",
+					"в", "v", "ve",
+					"г", "g", "ge",
+					"д", "d", "de",
+					"ж", "zh", "zhe",
+					"к", "k", "ka",
+					"л", "l", "el",
+					"м", "m", "em",
+					"н", "n", "en",
+					"п", "p", "pe",
+					"р", "r", "er",
+					"с", "s", "es",
+					"т", "t", "te",
+					"ф", "f", "ef",
+					"х", "kh", "kha",
+					"ц", "ts", "tse",
+					"ч", "ch", "che",
+					"ш", "sh", "sha",
+					"щ", "sch", "scha",
+					"ч", "ch", "che",], checked: true,},
+		];
+
+			const hand = false;
+			const defaultEntry = "automatic";
+
+			const answerPlaceholder = "Enter Pronunciation";
+			const standardInputTypeName = "pronunciation";
+			const names = true;
+			const typingSubsts = [];
+			const letterCase = true;
+		</script> 
+	</head>
+	<body style="text-align: center;">
+		<h1>Learn Russian Cyrillic</h1>
+		from <a href="index.html">LearnScripts</a>
+		<br /><br />
+		<div id="app">
+			<div id="noapp">Not loaded. <br /><br /> You may be using an incompatible browser or have turned Javascript off.</div>
+		</div>
+		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript">
+			const appElem = app();
+			document.getElementById("app").innerHTML = "";
+			document.getElementById("app").appendChild(appElem);
+			update();
+		</script>
+	</body>
+</html>

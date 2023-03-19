@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Learn Glagolitic (ⰳⰾⰰⰳⱁⰾⰹⱌⰰ)</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Online quiz to learn and practice the Glagolitic alphabet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>
+			const charsets = [
+				{name:"vowels",
+				chars:[
+					"Ⰰ", "a", "az",
+					"Ⱁ", "o", "on",
+					"Ⰵ", "e", "yest",
+					"Ⰹ", "i", "izhe",
+					"Ⰺ", "i", "izhe",
+					"Ⰻ", "i", "izhey",
+					"Ⱆ", "u", "uk",
+					"Ⱉ", "oh", "oht",
+					"Ⱏ", "u", "yer",
+					"ⰟⰊ", "u", "yeru",
+					"Ⱐ", "u", "yer",
+					"Ⱔ", "e", "ens",
+					"Ⱘ", "au", "ons",
+					"Ⱛ", "u", "izhista",], checked: true,},
+
+				{name:"consonants",
+				chars:[
+					"Ⰱ", "b", "buky",
+					"Ⰲ", "v", "vedi",
+					"Ⰳ", "g", "glagoli",
+					"Ⰴ", "d", "doro",
+					"Ⰶ", "zh", "zhivete",
+					"Ⰷ", "dz", "zelo",
+					"Ⰸ", "z", "zemlja",
+					"Ⰼ", "j", "djerv",
+					"Ⰽ", "k", "kako",
+					"Ⰾ", "l", "lyudi",
+					"Ⰿ", "m", "mislete",
+					"Ⱀ", "n", "nash",
+					"Ⱂ", "p", "pokoy",
+					"Ⱃ", "r", "rtsi",
+					"Ⱄ", "s", "slovo",
+					"Ⱅ", "t", "tverdo",
+					"Ⱇ", "f", "fert",
+					"Ⱈ", "kh", "kher",
+					"Ⱋ", "sht", "shta",
+					"Ⱌ", "ts", "tsi",
+					"Ⱍ", "ch", "cherv",
+					"Ⱎ", "sh", "sha",
+					"Ⱑ", "ya", "yat",
+					"Ⱖ", "yo", "yo",
+					"Ⱓ", "yu", "yu",
+					"Ⱗ", "ye", "yens",
+					"Ⱙ", "yaw", "yons",
+					"Ⱚ", "th", "thita",], checked: true,},
+		];
+
+			const hand = false;
+			const defaultEntry = "automatic";
+
+			const answerPlaceholder = "Enter Pronunciation";
+			const standardInputTypeName = "pronunciation";
+			const names = true;
+			const typingSubsts = [];
+			const letterCase = false;
+		</script>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body style="text-align: center;">
+		<h1>Learn the Glagolitic Alphabet</h1>
+		from <a href="index.html">LearnScripts</a>
+		<br /><br />
+		<div id="app">
+			<div id="noapp">Not loaded. <br /><br /> You may be using an incompatible browser or have turned Javascript off.</div>
+		</div>
+		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript">
+			const appElem = app();
+			document.getElementById("app").innerHTML = "";
+			document.getElementById("app").appendChild(appElem);
+			update();
+		</script>
+	</body>
+</html>

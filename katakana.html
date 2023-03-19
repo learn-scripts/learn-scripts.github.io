@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Learn Katakana カタカナ</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Online quiz to learn and practice Japanese Katakana">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>
+			const charsets = [
+				{name: "vowels",
+				chars:[
+					"ア", "a",
+					"イ", "i",
+					"ウ", "u",
+					"エ", "e",
+					"オ", "o",
+				], checked: true},
+
+				"<hr /> basic <i>gojuuon</i>:",
+
+				{name: "<i>k</i> row",
+				chars:[
+					"カ", "ka",
+					"キ", "ki",
+					"ク", "ku",
+					"ケ", "ke",
+					"コ", "ko",
+				], checked: true},
+
+				{name: "<i>s</i> row",
+				chars:[
+					"サ", "sa",
+					"シ", "shi",
+					"ス", "su",
+					"セ", "se",
+					"ソ", "so",
+				], checked: true},
+
+				{name: "<i>t</i> row",
+				chars:[
+					"タ", "ta",
+					"チ", "chi",
+					"ツ", "tsu",
+					"テ", "te",
+					"ト", "to",
+				], checked: true},
+
+				{name: "<i>n</i> row (with ン)",
+				chars:[
+					"ナ", "na",
+					"ニ", "ni",
+					"ヌ", "nu",
+					"ネ", "ne",
+					"ノ", "no",
+					"ン", "n",
+				], checked: true},
+
+				{name: "<i>h</i> row",
+				chars:[
+					"ハ", "ha",
+					"ヒ", "hi",
+					"フ", "fu",
+					"ヘ", "he",
+					"ホ", "ho",
+				], checked: true},
+
+				{name: "<i>m</i> row",
+				chars:[
+					"マ", "ma",
+					"ミ", "mi",
+					"ム", "mu",
+					"メ", "me",
+					"モ", "mo",
+				], checked: true},
+
+				{name: "<i>y</i> row",
+				chars:[
+					"ヤ", "ya",
+					"ユ", "yu",
+					"ヨ", "yo",
+				], checked: true},
+
+				{name: "<i>r</i> row",
+				chars:[
+					"ラ", "ra",
+					"リ", "ri",
+					"ル", "ru",
+					"レ", "re",
+					"ロ", "ro",
+				], checked: true},
+
+				{name: "<i>w</i> row",
+				chars:[
+					"ワ", "wa",
+				], checked: true},
+
+				"<hr /><i>gojuuon</i> with <i>dakuten</i>:",
+
+				{name: "<i>g</i> row",
+				chars:[
+					"ガ", "ga",
+					"ギ", "gi",
+					"グ", "gu",
+					"ゲ", "ge",
+					"ゴ", "go",
+				], checked: true},
+
+				{name: "<i>z</i> row",
+				chars:[
+					"ザ", "za",
+					"ジ", "ji",
+					"ズ", "zu",
+					"ゼ", "ze",
+					"ゾ", "zo",
+				], checked: true},
+
+				{name: "<i>d</i> row",
+				chars:[
+					"ダ", "da",
+					"ヂ", "ji",
+					"ヅ", "zu",
+					"デ", "de",
+					"ド", "do",
+				], checked: true},
+
+				{name: "<i>b</i> row",
+				chars:[
+					"バ", "ba",
+					"ビ", "bi",
+					"ブ", "bu",
+					"ベ", "be",
+					"ボ", "bo",
+				], checked: true},
+
+				{name: "<i>p</i> row",
+				chars:[
+					"パ", "pa",
+					"ピ", "pi",
+					"プ", "pu",
+					"ペ", "pe",
+					"ポ", "po",
+				], checked: true},
+
+				"<hr />",
+
+				{name: "basic <i>youon</i> digraphs",
+				chars:[
+					"キャ", "kya",
+					"キュ", "kyu",
+					"キョ", "kyo",
+					"シャ", "sha",
+					"シュ", "shu",
+					"ショ", "sho",
+					"チャ", "cha",
+					"チュ", "chu",
+					"チョ", "cho",
+					"ニャ", "nya",
+					"ニュ", "nyu",
+					"ニョ", "nyo",
+					"ヒャ", "hya",
+					"ヒュ", "hyu",
+					"ヒョ", "hyo",
+					"ミャ", "mya",
+					"ミュ", "myu",
+					"ミョ", "myo",
+				]},
+
+				{name: "<i>youon</i> with <i>dakuten</i>",
+				chars:[
+					"ギャ", "gya",
+					"ギュ", "gyu",
+					"ギョ", "gyo",
+					"ジャ", "ja",
+					"ジュ", "ju",
+					"ジョ", "jo",
+					"ヂャ", "ja",
+					"ヂュ", "ju",
+					"ヂョ", "jo",
+					"ビャ", "bya",
+					"ビュ", "byu",
+					"ビョ", "byo",
+					"ピャ", "pya",
+					"ピュ", "pyu",
+					"ピョ", "pyo",
+				]},
+
+				"<hr />",
+
+				{name: "archaic kana",
+				chars:[
+					"ヰ", "wi",
+					"ヱ", "we",
+					"ヲ", "wo",
+					"ヿ", "koto",
+				]},
+
+				{name: "extended katakana",
+				chars:[
+					"ティ", "ti",
+					"ディ", "di",
+					"ファ", "fa",
+					"フィ", "fi",
+					"シェ", "she",
+					"ジェ", "je",
+					"ウィ", "wi",
+					"ウェ", "we",
+					"フォ", "fo",
+					"フェ", "fe",
+					"チェ", "che",
+					"デュ", "dyu",
+					"ウォ", "wo",
+					"イェ", "ye",
+					"トゥ", "tu",
+					"クォ", "kwo",
+					"ツァ", "tsa",
+					"ツェ", "tse",
+					"ツォ", "tso",
+					"フュ", "fyu",
+					"ヴィ", "vi",
+					"ヴ", "vu",
+					"ヴェ", "ve",
+					"ヴォ", "vo",
+					"ドゥ", "du",
+				]},
+			];
+
+			let charList = [];
+
+			const hand = "'Klee One'";
+			const defaultEntry = "automatic";
+
+			const answerPlaceholder = "Enter Pronunciation";
+			const names = false;
+			const typingSubsts = [];
+			const letterCase = false;
+		</script>
+		<link rel="stylesheet" href="styles.css">
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Klee+One&display=swap');
+			@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap');
+		</style>
+	</head>
+	<body style="text-align: center;">
+		<h1>Learn Katakana</h1>
+		from <a href="index.html">LearnScripts</a>
+		<br /><br />
+		<div id="app">
+			<div id="noapp">Not loaded. <br /><br /> You may be using an incompatible browser or have turned Javascript off.</div>
+		</div>
+		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript">
+			const appElem = app();
+			document.getElementById("app").innerHTML = "";
+			document.getElementById("app").appendChild(appElem);
+			update();
+		</script>
+		<div style="clear: both;"><i>see also: <a href="hiragana.html">hiragana</a></i></div>
+
+		<h2>About Katakana</h2>
+		<p>Katakana is one of two <a href="https://en.wikipedia.org/wiki/Syllabary">syllabaries</a> used in Japanese writing. It contains forty five basic <i>kana</i>, along with several modified characters to represent the full range of Japanese pronunciation. The characters of Katakana developed from shorthand forms of <a href="https://en.wikipedia.org/wiki/kanji">Chinese logographic characters</a> alongside <a href="hiragana.html">Hiragana</a>. Katakana and Hiragana are both still in use today, and share many similar glyphs, such as Hirigana's か and Katakana's カ, both refering to the sound <i>ka</i>. Katakana has less frequent usage than Hiragana, and is mostly used for loanwords, onomatopoeia, and emphasis.</p>
+
+		<p>
+			Katakana is composed of:
+		</p>
+		<ol>
+			<li>five kana representing the vowels <i>a</i>, <i>e</i>, <i>u</i>, <i>i</i>, and <i>o</i></li>
+			<li>40 kana representing simple consonant-vowel pairs</li>
+			<li>25 variations of kana from type 2 with added "dakuten" (　゛) or "handakuten" (　゜)</li>
+			<li>36 diagraphs of kana from types 2 and 3, with small versions of the kana ヤ, ユ, and ヨ</li>
+			<li>ン, which represents the sound <i>n</i></li>
+			<li>ッ, which represents either germination or a glottal stop</li>
+			<li>several modern "extended Katakana" digraphs used for transcribing foreign sounds more accurately</li>
+		</ol>
+		<p>
+			Types 1, 2, and 3 are called "gojuuon," while type 4 is called "youon." Extended kana is a unique feature of Katakana, as the analogous Hiragana digraphs are not used. 
+		</p>
+
+		<h3>Table of Katakana</h3>
+		<table>
+			<th colspan="5">vowels</th>
+			<tr><td><div class="bigglyph">ア</div>a</td><td><div class="bigglyph">イ</div>i</td><td><div class="bigglyph">ウ</div>u</td><td><div class="bigglyph">エ</div>e</td><td><div class="bigglyph">オ</div>o</td></tr>
+			<th colspan="5">basic gojuuon</th>
+			<tr><td><div class="bigglyph">カ</div>ka</td><td><div class="bigglyph">キ</div>ki</td><td><div class="bigglyph">ク</div>ku</td><td><div class="bigglyph">ケ</div>ke</td><td><div class="bigglyph">コ</div>ko</td></tr>
+							
+			<tr><td><div class="bigglyph">サ</div>sa</td><td><div class="bigglyph">シ</div>shi</td><td><div class="bigglyph">ス</div>su</td><td><div class="bigglyph">セ</div>se</td><td><div class="bigglyph">ソ</div>so</td></tr>
+							
+			<tr><td><div class="bigglyph">タ</div>ta</td><td><div class="bigglyph">チ</div>chi</td><td><div class="bigglyph">ツ</div>tsu</td><td><div class="bigglyph">テ</div>te</td><td><div class="bigglyph">ト</div>to</td></tr>
+							
+			<tr><td><div class="bigglyph">ナ</div>na</td><td><div class="bigglyph">ニ</div>ni</td><td><div class="bigglyph">ヌ</div>nu</td><td><div class="bigglyph">ネ</div>ne</td><td><div class="bigglyph">ノ</div>no</td></tr>
+							
+			<tr><td><div class="bigglyph">ハ</div>ha</td><td><div class="bigglyph">ヒ</div>hi</td><td><div class="bigglyph">フ</div>fu</td><td><div class="bigglyph">ヘ</div>he</td><td><div class="bigglyph">ホ</div>ho</td></tr>
+							
+			<tr><td><div class="bigglyph">マ</div>ma</td><td><div class="bigglyph">ミ</div>mi</td><td><div class="bigglyph">ム</div>mu</td><td><div class="bigglyph">メ</div>me</td><td><div class="bigglyph">モ</div>mo</td></tr>
+			
+			<tr><td><div class="bigglyph">ヤ</div>ya</td><td>–</td>
+			<td><div class="bigglyph">ユ</div>yu</td><td>–</td>
+			<td><div class="bigglyph">ヨ</div>yo</td></tr>
+							
+			<tr><td><div class="bigglyph">ラ</div>ra</td><td><div class="bigglyph">リ</div>ri</td><td><div class="bigglyph">ル</div>ru</td><td><div class="bigglyph">レ</div>re</td><td><div class="bigglyph">ロ</div>ro</td></tr>
+							
+			<tr><td><div class="bigglyph">ワ</div>wa</td><td>–</td><td>–</td><td>–</td><td><div class="bigglyph">ヲ</div>wo</td></tr>
+
+			<th colspan="5">gojuuon with dakuten</th>
+							
+			<tr><td><div class="bigglyph">ガ</div>ga</td><td><div class="bigglyph">ギ</div>gi</td><td><div class="bigglyph">グ</div>gu</td><td><div class="bigglyph">ゲ</div>ge</td><td><div class="bigglyph">ゴ</div>go</td></tr>
+							
+			<tr><td><div class="bigglyph">ザ</div>za</td><td><div class="bigglyph">ジ</div>ji</td><td><div class="bigglyph">ズ</div>zu</td><td><div class="bigglyph">ゼ</div>ze</td><td><div class="bigglyph">ゾ</div>zo</td></tr>
+							
+			<tr><td><div class="bigglyph">ダ</div>da</td><td><div class="bigglyph">ヂ</div>ji</td><td><div class="bigglyph">ヅ</div>zu</td><td><div class="bigglyph">デ</div>de</td><td><div class="bigglyph">ド</div>do</td></tr>
+							
+			<tr><td><div class="bigglyph">バ</div>ba</td><td><div class="bigglyph">ビ</div>bi</td><td><div class="bigglyph">ブ</div>bu</td><td><div class="bigglyph">ベ</div>be</td><td><div class="bigglyph">ボ</div>bo</td></tr>
+							
+			<tr><td><div class="bigglyph">パ</div>pa</td><td><div class="bigglyph">ピ</div>pi</td><td><div class="bigglyph">プ</div>pu</td><td><div class="bigglyph">ペ</div>pe</td><td><div class="bigglyph">ポ</div>po</td></tr>
+
+			<th colspan="5">youon</th>
+							
+			<tr><td><div class="bigglyph">キャ</div>kya</td><td>–</td><td><div class="bigglyph">キュ</div>kyu</td><td>–</td><td><div class="bigglyph">キョ</div>kyo</td>
+
+			<tr><td><div class="bigglyph">シャ</div>sha</td><td>–</td><td><div class="bigglyph">シュ</div>shu</td><td>–</td><td><div class="bigglyph">ショ</div>sho</td></tr>
+
+			<tr><td><div class="bigglyph">チャ</div>cha</td><td>–</td><td><div class="bigglyph">チュ</div>chu</td><td>–</td><td><div class="bigglyph">チョ</div>cho</td></tr>
+
+			<tr><td><div class="bigglyph">ニャ</div>nya</td><td>–</td><td><div class="bigglyph">ニュ</div>nyu</td><td>–</td><td><div class="bigglyph">ニョ</div>nyo</td></tr>
+
+			<tr><td><div class="bigglyph">ヒャ</div>hya</td><td>–</td><td><div class="bigglyph">ヒュ</div>hyu</td><td>–</td><td><div class="bigglyph">ヒョ</div>hyo</td></tr>
+			
+			<tr><td><div class="bigglyph">ミャ</div>mya</td><td>–</td><td><div class="bigglyph">ミュ</div>myu</td><td>–</td><td><div class="bigglyph">ミョ</div>myo</td></tr>
+
+			<th colspan="5">youon with dakuten</th>
+							
+			<tr><td><div class="bigglyph">ギャ</div>gya</td><td>–</td><td><div class="bigglyph">ギュ</div>gyu</td><td>–</td><td><div class="bigglyph">ギョ</div>gyo</td></tr>
+			<tr><td><div class="bigglyph">ジャ</div>ja</td><td>–</td><td><div class="bigglyph">ジュ</div>ju</td><td>–</td><td><div class="bigglyph">ジョ</div>jo</td>
+			<tr><td><div class="bigglyph">ヂャ</div>ja</td><td>–</td><td><div class="bigglyph">ヂュ</div>ju</td><td>–</td><td><div class="bigglyph">ヂョ</div>jo</td></tr>
+			<tr><td><div class="bigglyph">ビャ</div>bya</td><td>–</td><td><div class="bigglyph">ビュ</div>byu</td><td>–</td><td><div class="bigglyph">ビョ</div>byo</td></tr>
+			<tr><td><div class="bigglyph">ピャ</div>pya</td><td>–</td><td><div class="bigglyph">ピュ</div>pyu</td><td>–</td><td><div class="bigglyph">ピョ</div>pyo</td></tr>
+			
+			<th colspan="5">other</th>
+
+			<tr><td><div class="bigglyph">ン</div>n</td><td><div class="bigglyph">ッ</div><small>sokuon</small></td><td><div class="bigglyph">ヰ</div>wi</td>
+			<td><div class="bigglyph">ヱ</div>we</td>
+			<td style="vertical-align: bottom;"><div class="bigglyph">ヿ</div>koto</td></tr>
+		</table>
+
+		<h3>Extended Katakana</h3>
+		<p>
+			This list contains some common extended Katakana digraphs used in the quiz above. A more complete list can be found at <a href="https://de.wikipedia.org/wiki/Katakana#Erweiterte_Katakana_(%E7%89%B9%E6%AE%8A%E9%9F%B3)">the German Wikipedia article</a>
+		</p>
+		<table cellspacing="20px">
+			<tr style="vertical-align: top; text-align: left;">
+				<td>
+					ティ – ti <br />
+					ディ – di <br />
+					ファ – fa <br />
+					フィ – fi <br />
+					シェ – she <br />
+					ジェ – je <br />
+					ウィ – wi
+				</td>
+				<td>
+					ウェ – we <br />
+					フォ – fo <br />
+					フェ – fe <br />
+					チェ – che <br />
+					デュ – dyu <br />
+					ウォ – wo 
+				</td>
+				<td>
+					イェ – ye <br />
+					トゥ – tu <br />
+					クォ – kwo <br />
+					ツァ – tsa <br />
+					ツェ – tse <br />
+					ツォ – tso 
+				</td>
+				<td>
+					フュ – fyu <br />
+					ヴィ – vi <br />
+					ヴ　 – vu <br />
+					ヴェ – ve <br />
+					ヴォ – vo <br />
+					ドゥ – du
+				</td>
+			</tr>
+		</table>
+
+		<h3>Example of Katakana text</h3>
+		<p>"ナムダイヒカンセオンボサツ。ナムアミダブツ。" reads as "Namu Daihi Kanseon Bosatsu. Namu Amida Butsu."</p>
+	</body>
+</html>

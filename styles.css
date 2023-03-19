@@ -1,0 +1,217 @@
+body, input, button{
+	font-family: tahoma;
+}
+
+body{
+	padding-bottom: 5em;
+}
+
+.a{
+	padding: 1em;
+	max-width: 500px;
+	margin: auto;
+	border: 4px double #222;
+}
+
+#noapp{
+	max-width: 500px;
+	height: 400px;
+	margin: auto;
+	background:
+linear-gradient(-45deg, tan 25%, transparent 25%, transparent 75%, NavajoWhite 75%, NavajoWhite) 0 0,
+linear-gradient(-45deg, NavajoWhite 25%, transparent 25%, transparent 75%, tan 75%, tan) 0.25rem 0.25rem,
+linear-gradient(45deg, NavajoWhite 17%, transparent 17%, transparent 25%, NavajoWhite 25%, NavajoWhite 36%, transparent 36%, transparent 64%, NavajoWhite 64%, NavajoWhite 75%, transparent 75%, transparent 83%, NavajoWhite 83%) 0.25rem 0.25rem;
+	background-color: tan;
+	background-size: 0.5rem 0.5rem;
+	border: 4px double #222;
+	font-size: 1.5em;
+	padding: 1em;
+}
+
+.menu{
+	width: 250px;
+	position: absolute;
+	top: 5em;
+}
+
+
+.cosmetic.menu{
+	right: calc(25vw - 255px);
+}
+
+.main.menu{
+	left: calc(25vw - 255px);
+}
+
+@media only screen and (max-width: 1100px) {
+	.cosmetic.menu, .main.menu{
+		padding-top: 2em;
+		padding-bottom: 2em; 
+		width: 48%;
+		margin: 0;
+		position: relative;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+	.main.menu{
+		float: right;
+	}
+}
+
+.menu label{
+	display: block;
+	text-align: left;
+}
+
+.langmenu button{
+	float: right;
+	margin: 0 5px;
+	margin-top: -1.9em; 
+	margin-bottom: 1em;
+}
+
+fieldset{
+	padding-top: 0.3em;
+}
+
+.clr{
+	width: 50px;
+	height: 25px;
+	margin: 1px;
+	border: 2px outset lightgrey;
+	padding: none;
+	outline: none;
+}
+
+.clr:active{
+	border: 2px inset lightgrey;
+}
+
+.queBox{
+	margin: auto;
+	font-size: 200px;
+	height: 350px;
+	line-height: 350px;
+	border: 4px solid grey;
+	background: white;
+	text-decoration-skip: none;
+	text-decoration-skip-ink: none;
+	pointer-events: none;
+}
+
+.errorBox{
+	height: 70px;
+	margin-top: -70px;
+}
+
+.answerBox{
+	margin-top: 0.5em;
+	font-size: 2em;
+	text-align: center;
+	width: 75%;
+}
+
+.enterButton{
+	font-size: 2em;
+	margin: 0;
+	margin-left: 2px;
+	padding: 0 0.5em;
+	background: #eee;
+	border: 2px outset lightgrey;
+}
+
+.enterButton:active{
+	border: 2px inset lightgrey;
+}
+
+.optionsGrid{
+	padding-top: 1em;
+}
+
+.optionsGrid button{
+	width: 4em;
+	padding: 0.2em 0;
+	font-size: 2em;
+	max-width: 30%;
+	margin: 4px;
+	background: #f4f4f4;
+	border: 4px lightgrey outset;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+
+.optionsGrid button:active{
+	border: 4px lightgrey inset;
+}
+
+.showButton, .skipButton{
+	margin: 0 14px;
+	margin-bottom: -40px;
+	margin-top: 14px;
+	font-size: 20px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.showButton{
+	float: left;
+	color: red;
+}
+
+.skipButton{
+	float: right;
+	color: orange;
+}
+
+h1{
+	padding: 0;		
+	margin: 0;
+}
+
+h3{
+	padding-bottom: 0;
+	margin-bottom: 0; 
+}
+
+table, p, ul, ol{
+	max-width: 500px;
+	margin: auto;
+	text-align: left;
+	padding: 0.5em 0;
+}
+
+th{
+	padding-top: 1em;
+}
+
+tr:first-child th{
+	padding-top: default;
+}
+
+table{
+	text-align: center;
+}
+
+ul, ol{
+	padding-left: 4em;
+	margin: auto;
+}
+
+h2{
+	clear: both;
+}
+
+.bigglyph{
+	display: block;
+	font-size: 2.4em;
+	margin-bottom: -0.2em; 
+	font-family: serif;
+}
+
+svg{
+	max-width: 100%;
+}
+

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Learn Hiragana ひらがな</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Online quiz to learn and practice Japanese Hiragana">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>
+			const charsets = [
+				{name: "vowels",
+				chars:[
+					"あ", "a",
+					"い", "i",
+					"う", "u",
+					"え", "e",
+					"お", "o",
+				], checked: true},
+
+				"<hr /> basic <i>gojuuon</i>:",
+
+				{name: "<i>k</i> row",
+				chars:[
+					"か", "ka",
+					"き", "ki",
+					"く", "ku",
+					"け", "ke",
+					"こ", "ko",
+				], checked: true},
+
+				{name: "<i>s</i> row",
+				chars:[
+					"さ", "sa",
+					"し", "shi",
+					"す", "su",
+					"せ", "se",
+					"そ", "so",
+				], checked: true},
+
+				{name: "<i>t</i> row",
+				chars:[
+					"た", "ta",
+					"ち", "chi",
+					"つ", "tsu",
+					"て", "te",
+					"と", "to",
+				], checked: true},
+
+				{name: "<i>n</i> row (with ん)",
+				chars:[
+					"な", "na",
+					"に", "ni",
+					"ぬ", "nu",
+					"ね", "ne",
+					"の", "no",
+					"ん", "n",
+				], checked: true},
+
+				{name: "<i>h</i> row",
+				chars:[
+					"は", "ha",
+					"ひ", "hi",
+					"ふ", "fu",
+					"へ", "he",
+					"ほ", "ho",
+				], checked: true},
+
+				{name: "<i>m</i> row",
+				chars:[
+					"ま", "ma",
+					"み", "mi",
+					"む", "mu",
+					"め", "me",
+					"も", "mo",
+				], checked: true},
+
+				{name: "<i>y</i> row",
+				chars:[
+					"や", "ya",
+					"ゆ", "yu",
+					"よ", "yo",
+				], checked: true},
+
+				{name: "<i>r</i> row",
+				chars:[
+					"ら", "ra",
+					"り", "ri",
+					"る", "ru",
+					"れ", "re",
+					"ろ", "ro",
+				], checked: true},
+
+				{name: "<i>w</i> row",
+				chars:[
+					"わ", "wa",
+					"を", "wo",
+				], checked: true},
+
+				"<hr /><i>gojuuon</i> with <i>dakuten</i>:",
+
+				{name: "<i>g</i> row",
+				chars:[
+					"が", "ga",
+					"ぎ", "gi",
+					"ぐ", "gu",
+					"げ", "ge",
+					"ご", "go",
+				], checked: true},
+
+				{name: "<i>z</i> row",
+				chars:[
+					"ざ", "za",
+					"じ", "ji",
+					"ず", "zu",
+					"ぜ", "ze",
+					"ぞ", "zo",
+				], checked: true},
+
+				{name: "<i>d</i> row",
+				chars:[
+					"だ", "da",
+					"ぢ", "ji",
+					"づ", "zu",
+					"で", "de",
+					"ど", "do",
+				], checked: true},
+
+				{name: "<i>b</i> row",
+				chars:[
+					"ば", "ba",
+					"び", "bi",
+					"ぶ", "bu",
+					"べ", "be",
+					"ぼ", "bo",
+				], checked: true},
+
+				{name: "<i>p</i> row",
+				chars:[
+					"ぱ", "pa",
+					"ぴ", "pi",
+					"ぷ", "pu",
+					"ぺ", "pe",
+					"ぽ", "po",
+				], checked: true},
+
+				"<hr />",
+
+				{name: "basic <i>youon</i> digraphs",
+				chars:[
+					"き<small>ゃ</small>", "kya",
+					"き<small>ゅ</small>", "kyu",
+					"き<small>ょ</small>", "kyo",
+					"し<small>ゃ</small>", "sha",
+					"し<small>ゅ</small>", "shu",
+					"し<small>ょ</small>", "sho",
+					"ち<small>ゃ</small>", "cha",
+					"ち<small>ゅ</small>", "chu",
+					"ち<small>ょ</small>", "cho",
+					"に<small>ゃ</small>", "nya",
+					"に<small>ゅ</small>", "nyu",
+					"に<small>ょ</small>", "nyo",
+					"ひ<small>ゃ</small>", "hya",
+					"ひ<small>ゅ</small>", "hyu",
+					"ひ<small>ょ</small>", "hyo",
+					"み<small>ゃ</small>", "mya",
+					"み<small>ゅ</small>", "myu",
+					"み<small>ょ</small>", "myo",
+				]},
+
+				{name: "<i>youon</i> with <i>dakuten</i>",
+				chars:[
+					"ぎ<small>ゃ</small>", "gya",
+					"ぎ<small>ゅ</small>", "gyu",
+					"ぎ<small>ょ</small>", "gyo",
+					"じ<small>ゃ</small>", "ja",
+					"じ<small>ゅ</small>", "ju",
+					"じ<small>ょ</small>", "jo",
+					"ぢ<small>ゃ</small>", "ja",
+					"ぢ<small>ゅ</small>", "ju",
+					"ぢ<small>ょ</small>", "jo",
+					"び<small>ゃ</small>", "bya",
+					"び<small>ゅ</small>", "byu",
+					"び<small>ょ</small>", "byo",
+					"ぴ<small>ゃ</small>", "pya",
+					"ぴ<small>ゅ</small>", "pyu",
+					"ぴ<small>ょ</small>", "pyo",
+				]},
+
+				"<hr />",
+
+				{name: "archaic kana",
+				chars:[
+					"ゐ", "wi",
+					"ゑ", "we",
+					"ゟ", "yori",
+				]},
+			];
+
+			let charList = [];
+
+			const hand = "'Klee One'";
+			const defaultEntry = "automatic";
+
+			const answerPlaceholder = "Enter Pronunciation";
+			const names = false;
+			const typingSubsts = [];
+			const letterCase = false;
+		</script>
+		<link rel="stylesheet" href="styles.css">
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Klee+One&display=swap');
+			@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap');
+		</style>
+	</head>
+	<body style="text-align: center;">
+		<h1>Learn Hiragana</h1>
+		from <a href="index.html">LearnScripts</a>
+		<br /><br />
+		<div id="app">
+			<div id="noapp">Not loaded. <br /><br /> You may be using an incompatible browser or have turned Javascript off.</div>
+		</div>
+		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript">
+			const appElem = app();
+			document.getElementById("app").innerHTML = "";
+			document.getElementById("app").appendChild(appElem);
+			update();
+		</script>
+		<div style="clear: both;"><i>see also: <a href="katakana.html">katakana</a></i></div>
+		<h2>About Hiragana</h2>
+		<p>Hiragana is one of two <a href="https://en.wikipedia.org/wiki/Syllabary">syllabaries</a> used in Japanese writing. It contains forty five basic <i>kana</i>, along with several modified characters to represent the full range of Japanese pronunciation. The characters of Hiragana developed from shorthand forms of <a href="https://en.wikipedia.org/wiki/kanji">Chinese logographic characters</a> alongside <a href="katakana.html">Katakana</a>. Katakana and Hiragana are both still in use today, and share many similar glyphs, such as Hirigana's か and Katakana's カ, both refering to the sound <i>ka</i>.</p>
+
+		<p>
+			Hirigana is composed of:
+		</p>
+		<ol>
+			<li>five kana representing the vowels <i>a</i>, <i>e</i>, <i>u</i>, <i>i</i>, and <i>o</i></li>
+			<li>40 kana representing simple consonant-vowel pairs</li>
+			<li>25 variations of kana from type 2 with added "dakuten" (　゛) or "handakuten" (　゜)</li>
+			<li>36 diagraphs of kana from types 2 and 3, with small versions of the kana や, ゆ, and よ</li>
+			<li>two extra kana: ん, which represents the sound <i>n</i>, and っ, which represents either germination or a glottal stop</li>
+		</ol>
+		<p>
+			types 1, 2, and 3 are called "gojuuon," while type 4 is called "youon."
+		</p>
+
+		<h3>Table of Hiragana</h3>
+		<table>
+			<th colspan="5">vowels</th>
+			<tr><td><div class="bigglyph">あ</div>a</td><td><div class="bigglyph">い</div>i</td><td><div class="bigglyph">う</div>u</td><td><div class="bigglyph">え</div>e</td><td><div class="bigglyph">お</div>o</td></tr>
+			<th colspan="5">basic gojuuon</th>
+			<tr><td><div class="bigglyph">か</div>ka</td><td><div class="bigglyph">き</div>ki</td><td><div class="bigglyph">く</div>ku</td><td><div class="bigglyph">け</div>ke</td><td><div class="bigglyph">こ</div>ko</td></tr>
+							
+			<tr><td><div class="bigglyph">さ</div>sa</td><td><div class="bigglyph">し</div>shi</td><td><div class="bigglyph">す</div>su</td><td><div class="bigglyph">せ</div>se</td><td><div class="bigglyph">そ</div>so</td></tr>
+							
+			<tr><td><div class="bigglyph">た</div>ta</td><td><div class="bigglyph">ち</div>chi</td><td><div class="bigglyph">つ</div>tsu</td><td><div class="bigglyph">て</div>te</td><td><div class="bigglyph">と</div>to</td></tr>
+							
+			<tr><td><div class="bigglyph">な</div>na</td><td><div class="bigglyph">に</div>ni</td><td><div class="bigglyph">ぬ</div>nu</td><td><div class="bigglyph">ね</div>ne</td><td><div class="bigglyph">の</div>no</td></tr>
+							
+			<tr><td><div class="bigglyph">は</div>ha</td><td><div class="bigglyph">ひ</div>hi</td><td><div class="bigglyph">ふ</div>fu</td><td><div class="bigglyph">へ</div>he</td><td><div class="bigglyph">ほ</div>ho</td></tr>
+							
+			<tr><td><div class="bigglyph">ま</div>ma</td><td><div class="bigglyph">み</div>mi</td><td><div class="bigglyph">む</div>mu</td><td><div class="bigglyph">め</div>me</td><td><div class="bigglyph">も</div>mo</td></tr>
+							
+			<tr><td><div class="bigglyph">や</div>ya</td><td>–</td>
+			<td><div class="bigglyph">ゆ</div>yu</td><td>–</td>
+			<td><div class="bigglyph">よ</div>yo</td></tr>
+							
+			<tr><td><div class="bigglyph">ら</div>ra</td><td><div class="bigglyph">り</div>ri</td><td><div class="bigglyph">る</div>ru</td><td><div class="bigglyph">れ</div>re</td><td><div class="bigglyph">ろ</div>ro</td></tr>
+							
+			<tr><td><div class="bigglyph">わ</div>wa</td><td>–</td><td>–</td><td>–</td><td><div class="bigglyph">を</div>wo</td></tr>
+
+			<th colspan="5">gojuuon with dakuten</th>
+							
+			<tr><td><div class="bigglyph">が</div>ga</td><td><div class="bigglyph">ぎ</div>gi</td><td><div class="bigglyph">ぐ</div>gu</td><td><div class="bigglyph">げ</div>ge</td><td><div class="bigglyph">ご</div>go</td></tr>
+							
+			<tr><td><div class="bigglyph">ざ</div>za</td><td><div class="bigglyph">じ</div>ji</td><td><div class="bigglyph">ず</div>zu</td><td><div class="bigglyph">ぜ</div>ze</td><td><div class="bigglyph">ぞ</div>zo</td></tr>
+							
+			<tr><td><div class="bigglyph">だ</div>da</td><td><div class="bigglyph">ぢ</div>ji</td><td><div class="bigglyph">づ</div>zu</td><td><div class="bigglyph">で</div>de</td><td><div class="bigglyph">ど</div>do</td></tr>
+							
+			<tr><td><div class="bigglyph">ば</div>ba</td><td><div class="bigglyph">び</div>bi</td><td><div class="bigglyph">ぶ</div>bu</td><td><div class="bigglyph">べ</div>be</td><td><div class="bigglyph">ぼ</div>bo</td></tr>
+							
+			<tr><td><div class="bigglyph">ぱ</div>pa</td><td><div class="bigglyph">ぴ</div>pi</td><td><div class="bigglyph">ぷ</div>pu</td><td><div class="bigglyph">ぺ</div>pe</td><td><div class="bigglyph">ぽ</div>po</td></tr>
+
+			<th colspan="5">youon</th>
+							
+			<tr><td><div class="bigglyph">きゃ</div>kya</td><td>–</td><td><div class="bigglyph">きゅ</div>kyu</td><td>–</td><td><div class="bigglyph">きょ</div>kyo</td>
+
+			<tr><td><div class="bigglyph">しゃ</div>sha</td><td>–</td><td><div class="bigglyph">しゅ</div>shu</td><td>–</td><td><div class="bigglyph">しょ</div>sho</td></tr>
+
+			<tr><td><div class="bigglyph">ちゃ</div>cha</td><td>–</td><td><div class="bigglyph">ちゅ</div>chu</td><td>–</td><td><div class="bigglyph">ちょ</div>cho</td></tr>
+
+			<tr><td><div class="bigglyph">にゃ</div>nya</td><td>–</td><td><div class="bigglyph">にゅ</div>nyu</td><td>–</td><td><div class="bigglyph">にょ</div>nyo</td></tr>
+
+			<tr><td><div class="bigglyph">ひゃ</div>hya</td><td>–</td><td><div class="bigglyph">ひゅ</div>hyu</td><td>–</td><td><div class="bigglyph">ひょ</div>hyo</td></tr>
+			
+			<tr><td><div class="bigglyph">みゃ</div>mya</td><td>–</td><td><div class="bigglyph">みゅ</div>myu</td><td>–</td><td><div class="bigglyph">みょ</div>myo</td></tr>
+
+			<th colspan="5">youon with dakuten</th>
+							
+			<tr><td><div class="bigglyph">ぎゃ</div>gya</td><td>–</td><td><div class="bigglyph">ぎゅ</div>gyu</td><td>–</td><td><div class="bigglyph">ぎょ</div>gyo</td></tr>
+			<tr><td><div class="bigglyph">じゃ</div>ja</td><td>–</td><td><div class="bigglyph">じゅ</div>ju</td><td>–</td><td><div class="bigglyph">じょ</div>jo</td>
+			<tr><td><div class="bigglyph">ぢゃ</div>ja</td><td>–</td><td><div class="bigglyph">ぢゅ</div>ju</td><td>–</td><td><div class="bigglyph">ぢょ</div>jo</td></tr>
+			<tr><td><div class="bigglyph">びゃ</div>bya</td><td>–</td><td><div class="bigglyph">びゅ</div>byu</td><td>–</td><td><div class="bigglyph">びょ</div>byo</td></tr>
+			<tr><td><div class="bigglyph">ぴゃ</div>pya</td><td>–</td><td><div class="bigglyph">ぴゅ</div>pyu</td><td>–</td><td><div class="bigglyph">ぴょ</div>pyo</td></tr>
+			
+			<th colspan="5">other</th>
+
+			<tr><td><div class="bigglyph">ん</div>n</td><td><div class="bigglyph">っ</div><small>sokuon</small></td><td><div class="bigglyph">ゐ</div>wi</td>
+			<td><div class="bigglyph">ゑ</div>we</td>
+			<td><div class="bigglyph">ゟ</div>yori</td></tr>
+		</table>
+
+		<h3>Example of Hiragana text</h3>
+		<p>"なむだいひかんせおんぼさつ。なむあみだぶつ。" reads as "Namu Daihi Kanseon Bosatsu. Namu Amida Butsu."</p>
+
+		<h3 id="n">Mnemonics</h3>
+		<p>Several faces often doodled with Hiragana by Japanese school children, derived from the <a href="https://en.wikipedia.org/wiki/henohenomoheji">Henohenomoheji</a> (へのへのもへじ) can be used to help remember how to write the characters. More faces can be found <a href="https://web.archive.org/web/20150506132842/http://www.geocities.jp/n80da/moheji/moheji.html">here</a>.</p>
+		<table>
+			<tr>
+				<td>
+					<svg version="1.1"
+					     width="210" height="200"
+					     xmlns="http://www.w3.org/2000/svg">
+					     <style type="text/css">
+					     	text{
+					     		font-family: "Klee one";
+					     	}
+					     </style>
+					  <text fill="purple" x="90" y="60" font-size="60" text-anchor="middle">へ</text>
+					  <text fill="green" x="85" y="75" font-size="50" text-anchor="middle">の</text>
+
+					  <text fill="purple" x="145" y="60" font-size="60" text-anchor="middle">へ</text>
+					  <text fill="green" x="140" y="75" font-size="50" text-anchor="middle">の</text>
+
+					  <text fill="orange" x="115" y="110" font-size="60" text-anchor="middle">も</text>
+					  <text fill="purple" x="115" y="150" font-size="60" text-anchor="middle">へ</text>
+
+					  <text x="100" y="170" font-size="220" text-anchor="middle" fill="magenta">し</text>
+					  <text x="230" y="210" font-size="170" text-anchor="middle" fill="magenta">゛</text>
+					</svg><br />
+					<strong><span style="color: purple;">He</span><span style="color: green;">no</span><span style="color: purple;">he</span><span style="color: green;">no</span><span style="color: orange;">mo</span><span style="color: purple;">he</span><span style="color: magenta;">ji</span></strong>
+					<br /><br />
+				</td>
+
+				<td>
+					<svg version="1.1"
+					     width="210" height="200"
+					     xmlns="http://www.w3.org/2000/svg">
+					     <style type="text/css">
+					     	text{
+					     		font-family: "Klee one";
+					     	}
+					     </style>
+					  <text fill="purple" x="90" y="60" font-size="60" text-anchor="middle">へ</text>
+					  <text fill="teal" x="85" y="75" font-size="50" text-anchor="middle">め</text>
+
+					  <text fill="purple" x="145" y="60" font-size="60" text-anchor="middle">へ</text>
+					  <text fill="teal" x="140" y="75" font-size="50" text-anchor="middle">め</text>
+
+					  <text fill="green" x="110" y="110" font-size="50" text-anchor="middle">く</text>
+					  <text fill="red" x="115" y="155" font-size="60" text-anchor="middle">つ</text>
+
+					  <text x="100" y="170" font-size="220" text-anchor="middle" fill="orange">し</text>
+					</svg><br />
+					<strong><span style="color: purple;">He</span><span style="color: teal;">me</span><span style="color: purple;">he</span><span style="color: teal;">me</span><span style="color: green;">ku</span><span style="color: red;">tsu</span><span style="color: orange;">shi</span></strong>
+					<br /><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<svg version="1.1"
+					     width="210" height="200"
+					     xmlns="http://www.w3.org/2000/svg">
+					     <style type="text/css">
+					     	text{
+					     		font-family: "Klee one";
+					     	}
+					     </style>
+					  <text x="90" y="60" font-size="60" text-anchor="middle" fill="purple">へ</text>
+					  <text x="85" y="75" font-size="40" text-anchor="middle" fill="darkkhaki">ね</text>
+
+					  <text x="145" y="60" font-size="60" text-anchor="middle" fill="purple">へ</text>
+					  <text x="140" y="75" font-size="40" text-anchor="middle" fill="darkkhaki">ね</text>
+
+					  <text x="120" y="105" font-size="50" text-anchor="middle" fill="orange">し</text>
+					  <text x="115" y="200" font-size="60" text-anchor="middle" fill="grey" transform="scale(1, 0.7)">こ</text>
+
+					  <mask id="mask">
+							<circle cx="110" cy="100" r="200" fill="white" />
+						  <circle cx="109" cy="75" r="55" fill="black" />
+						</mask>
+
+					  	<text mask="url(#mask)" x="110" y="165" font-size="220" text-anchor="middle" fill="green" style="font-family: 'noto serif JP';">の</text>
+
+						
+
+					</svg><br />
+					<strong><span style="color: purple;">He</span><span style="color: darkkhaki;">ne</span><span style="color: purple;">he</span><span style="color: darkkhaki;">ne</span><span style="color: orange;">shi</span><span style="color: grey;">ko</span><span style="color: green;">no</span></strong>
+				</td>
+				<td>
+					<svg version="1.1"
+					     width="210" height="200"
+					     xmlns="http://www.w3.org/2000/svg">
+					     <style type="text/css">
+					     	text{
+					     		font-family: "Klee one";
+					     	}
+					     </style>
+					  <text x="57" y="90" font-size="60" text-anchor="middle" fill="green" transform="scale(1.5, 0.5)">く</text>
+					  <text x="85" y="75" font-size="50" text-anchor="middle" fill="teal">め</text>
+
+					  <text x="92" y="90" font-size="60" text-anchor="middle" fill="green" transform="scale(1.5, 0.5)">く</text>
+					  <text x="140" y="75" font-size="50" text-anchor="middle" fill="teal">め</text>
+
+					  <text x="110" y="110" font-size="50" text-anchor="middle" fill="red">ひ</text>
+					  <text x="115" y="290" font-size="70" text-anchor="middle" fill="blue" transform="scale(1, 0.5)">ろ</text>
+
+					  <text x="100" y="170" font-size="220" text-anchor="middle" fill="magenta">し</text>
+					  <text x="230" y="210" font-size="170" text-anchor="middle" fill="magenta">゛</text>
+					</svg><br />
+					<strong><span style="color: green;">Ku</span><span style="color: teal;">me</span><span style="color: green;">ku</span><span style="color: teal;">me</span><span style="color: red;">hi</span><span style="color: blue;">ro</span><span style="color: magenta;">ji</span></strong>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+

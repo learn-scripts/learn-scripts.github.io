@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Learn the Hebrew Alphabet עִבְרִית</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Online quiz to learn and practice the Hebrew alphabet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>
+			const charsets = [
+				{name:"plain letters",
+				chars:[
+					"ב", "v", "bet",
+					"ג", "g", "gimel",
+					"ד‎", "th", "dalet",
+					"ה", "h", "he",
+					"ו", "v", "vav",
+					"ז", "z", "zayin",
+					"ח", "kh", "khet",
+					"ט", "t", "tet",
+					"י", "y", "yod",
+					"כ", "kh", "kaf",
+					"ך", "kh", "kaf sofit",
+					"ל", "l", "lamed",
+					"מ", "m", "mem",
+					"ם", "m", "mem sofit",
+					"נ", "n", "nun",
+					"ן", "n", "nun sofit",
+					"ס", "s",  "samekh",
+					"פ", "f", "pe",
+					"ף‎", "f", "pe sofit",
+					"צ", "ts", "tsadi",
+					"ץ", "ts", "tsadi sofit",
+					"ק", "q", "qof",
+					"ר", "r", "resh",
+					"ת", "s", "tav",
+				], checked:true},
+
+				{name:"silent letters",
+				chars:[
+					"ע", "silent", "ayin",
+					"א", "silent", "alef",
+				], checked:true},
+
+				{name:"<i>shin</i> and <i>sin</i>",
+				chars:[
+					"שׁ", "sh", "shin",
+					"שׂ", "s", "sin",
+				], checked: true},
+
+				{name:"<i>dagesh</i> forms",
+				chars:[
+					"בּ", "b", "bet",
+					"גּ", "gh", "gimel",
+					"דּ", "d", "dalet",
+					"כּ", "k", "kaf",
+					"ךּ", "k", "kaf sofit",
+					"פּ", "p", "pe",
+					"ףּ", "p", "pe sofit",
+					"תּ", "t", "tav",
+				], checked: true},
+
+				{name:"<i>garesh</i> forms",
+				chars:[
+					"ג׳‎", "j", "garesh gimel",
+					"ז׳‎", "zh", "garesh zayin",
+					"צ׳‎", "ch", "garesh tsadi",
+					"ו׳", "w", "garesh vav",
+					"ד׳", "th", "garesh dalet",
+					"ת׳‎", "th", "garesh tav",
+					"ת׳‎", "th", "garesh tav",
+				]},
+			];
+
+			const answerPlaceholder = "Enter Pronunciation";
+			const hand = "alef";
+			const defaultEntry = "automatic";
+
+			const standardInputTypeName = "pronunciation";
+			const names = true;
+			const typingSubsts = [];
+			const letterCase = false;
+		</script>
+		<link rel="stylesheet" href="styles.css">
+		<style>
+			@font-face{
+				font-family: 'alef';
+				src: url('hebAlef.woff') format('woff'),
+					 url('hebAlef.ttf') format('truetype');
+			}
+		</style>
+	</head>
+	<body style="text-align: center;">
+		<h1>Learn the Hebrew Alphabet</h1>
+		from <a href="index.html">LearnScripts</a>
+		<br /><br />
+		<div id="app">
+			<div id="noapp">Not loaded. <br /><br /> You may be using an incompatible browser or have turned Javascript off.</div>
+		</div>
+		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript">
+			const appElem = app();
+			document.getElementById("app").innerHTML = "";
+			document.getElementById("app").appendChild(appElem);
+			update();
+		</script>
+	</body>
+</html>

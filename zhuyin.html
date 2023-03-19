@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Learn Bopomofo ㄅㄆㄇㄈ</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Online quiz to learn and practice Taiwanese Mandarin Bopomofo (Zhuyin)">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>
+			const charsets = [
+				{
+					name:"characters",
+					chars:[
+						"ㄅ", "b",
+						"ㄆ", "p",
+						"ㄇ", "m",
+						"ㄈ", "f",
+						"ㄉ", "d",
+						"ㄊ", "t",
+						"ㄋ", "n",
+						"ㄌ", "l",
+						"ㄍ", "g",
+						"ㄎ", "k",
+						"ㄏ", "h",
+						"ㄐ", "j",
+						"ㄑ", "q",
+						"ㄒ", "x",
+						"ㄓ", "zh",
+						"ㄔ", "ch",
+						"ㄕ", "sh",
+						"ㄖ", "r",
+						"ㄗ", "z",
+						"ㄘ", "c",
+						"ㄙ", "s",
+						"ㄧ", "y",
+						"ㄨ", "w",
+						"ㄩ", "u",
+						"ㄚ", "a",
+						"ㄛ", "o",
+						"ㄜ", "e",
+						"ㄝ", "e",
+						"ㄞ", "ai",
+						"ㄟ", "ei",
+						"ㄠ", "ao",
+						"ㄡ", "ou",
+						"ㄢ", "an",
+						"ㄣ", "en",
+						"ㄤ", "ang",
+						"ㄥ", "eng",
+						"ㄦ", "er",
+					], checked:true,
+				},
+
+				{
+					name:"tone markers",
+					chars:[
+						"ˉ", "1",
+						"ˊ", "2",
+						"ˋ", "4",
+						"˙", "5",
+						"ˇ", "3",
+					], checked:false,
+				},
+			];
+
+			let charList = [];
+			const defaultEntry = "automatic";
+
+			const hand = false;
+			const answerPlaceholder = "Enter Pinyin";
+			const names = false;
+			const typingSubsts = [];
+			const letterCase = false;
+		</script>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body style="text-align: center;">
+		<h1>Learn Bopomofo (Zhuyin)</h1>
+		from <a href="index.html">LearnScripts</a>
+		<br /><br />
+		<div id="app">
+			<div id="noapp">Not loaded. <br /><br /> You may be using an incompatible browser or have turned Javascript off.</div>
+		</div>
+		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript">
+			const appElem = app();
+			document.getElementById("app").innerHTML = "";
+			document.getElementById("app").appendChild(appElem);
+			update();
+		</script>
+		<h2>About Bopomofo</h2>
+		<p>Zhuyin (or <a href="https://en.wikipedia.org/wiki/bopomofo">Bopomofo</a>, named after the first four letters in its alphabet, ㄅ, ㄆ, ㄇ, and ㄈ) is a modern script invented to transcribe the sounds of Chinese characters. It is used mainly in Taiwan, as the PRC uses Pinyin, a Latin script. It most often used as a <a href="https://en.wikipedia.org/wiki/Ruby_character">ruby gloss</a> above Chinese words to indicate their pronunciation. There are also several tone markers which are placed after the character, rather than above like Pinyin tone markers.</p>
+		
+		<p>The pronunciations of some Bopomofo characters vary depending upon their position within the syllable, but for the purposes of the quiz above, they are as follows, transcribed into Pinyin:</p>
+		<ul>
+			<li>ㄅ – "b"</li>
+			<li>ㄆ – "p"</li>
+			<li>ㄇ – "m"</li>
+			<li>ㄈ – "f"</li>
+			<li>ㄉ – "d"</li>
+			<li>ㄊ – "t"</li>
+			<li>ㄋ – "n"</li>
+			<li>ㄌ – "l"</li>
+			<li>ㄍ – "g"</li>
+			<li>ㄎ – "k"</li>
+			<li>ㄏ – "h"</li>
+			<li>ㄐ – "j"</li>
+			<li>ㄑ – "q"</li>
+			<li>ㄒ – "x"</li>
+			<li>ㄓ – "zh"</li>
+			<li>ㄔ – "ch"</li>
+			<li>ㄕ – "sh"</li>
+			<li>ㄖ – "r"</li>
+			<li>ㄗ – "z"</li>
+			<li>ㄘ – "c"</li>
+			<li>ㄙ – "s"</li>
+			<li>ㄧ – "y"</li>
+			<li>ㄨ – "w"</li>
+			<li>ㄩ – "u"</li>
+			<li>ㄚ – "a"</li>
+			<li>ㄛ – "o"</li>
+			<li>ㄜ – "e"</li>
+			<li>ㄝ – "e"</li>
+			<li>ㄞ – "ai"</li>
+			<li>ㄟ – "ei"</li>
+			<li>ㄠ – "ao"</li>
+			<li>ㄡ – "ou"</li>
+			<li>ㄢ – "an"</li>
+			<li>ㄣ – "en"</li>
+			<li>ㄤ – "ang"</li>
+			<li>ㄥ – "eng"</li>
+			<li>ㄦ – "er"</li>
+		</ul>
+		<p>See <a href="https://en.wikipedia.org/wiki/Bopomofo#Symbols">Wikipedia</a> for a more detailed list.</p>
+	</body>
+</html>

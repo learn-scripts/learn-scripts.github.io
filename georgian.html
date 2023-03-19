@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Learn the Georgian Alphabet მხედრული</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Online quiz to learn and practice the Georgian alphabet (Mkhedruli)">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>
+			const charsets = [
+				{name:"vowels",
+				chars:[
+					"ა", "a", "ani",
+					"ო", "o", "oni",
+					"ი", "i", "ini",
+					"უ", "u", "uni",
+					"ე", "e", "eni",], checked: true,},
+
+				{name:"consonants",
+				chars:[
+					"ბ", "b", "bani",
+					"გ", "g", "gani",
+					"დ", "d", "doni",
+					"ვ", "v", "vini",
+					"ზ", "z", "zeni",
+					"თ", "t", "tani",
+					"კ", "k", "kani",
+					"ლ", "l", "lasi",
+					"მ", "m", "mani",
+					"ნ", "n", "nari",
+					"პ", "p", "pari",
+					"ჟ", "zh", "zhani",
+					"რ", "r", "rae",
+					"ს", "s", "sani",
+					"ტ", "t", "tari",
+					"ფ", "ph", "phari",
+					"ქ", "kh", "khani",
+					"ღ", "gh", "ghani",
+					"ყ", "q", "qari",
+					"შ", "sh", "shini",
+					"ჩ", "ch", "chini",
+					"ც", "ts", "tsani",
+					"ძ", "dz", "dzili",
+					"წ", "ts", "tsili",
+					"ჭ", "tch", "tchari",
+					"ხ", "xh", "xhani",
+					"ჯ", "j", "jani",
+					"ჰ", "h", "hae",], checked: true,},
+		];
+
+			const hand = false;
+			const defaultEntry = "automatic";
+
+			const answerPlaceholder = "Enter Pronunciation";
+			const standardInputTypeName = "pronunciation";
+			const names = true;
+			const typingSubsts = [];
+			const letterCase = false;
+		</script>
+		<link rel="stylesheet" href="styles.css">
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian&family=UnifrakturCook&display=swap');
+		</style> 
+	</head>
+	<body style="text-align: center;">
+		<h1>Learn the Georgian Alphabet</h1>
+		from <a href="index.html">LearnScripts</a>
+		<br /><br />
+		<div id="app">
+			<div id="noapp">Not loaded. <br /><br /> You may be using an incompatible browser or have turned Javascript off.</div>
+		</div>
+		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript">
+			const appElem = app();
+			document.getElementById("app").innerHTML = "";
+			document.getElementById("app").appendChild(appElem);
+			update();
+		</script>
+	</body>
+</html>
