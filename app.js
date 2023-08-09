@@ -56,7 +56,7 @@ function app(){
 
 	const fontRadio = document.createElement("fieldset");
 
-	const serif = "serif, 'Noto Serif Georgian', 'ＭＳ 明朝', 'MS Mincho', 'Hiragino Mincho Pro', 'ヒラギノ明朝 Pro W3', '游明朝', 'YuMincho', 'ＭＳ Ｐ明朝', 'MS PMincho', 'Hiragino Mincho ProN', 'Noto Serif JP'"
+	const serif = "serif, 'Noto Serif Georgian', 'Noto Sans Siddham', 'ＭＳ 明朝', 'MS Mincho', 'Hiragino Mincho Pro', 'ヒラギノ明朝 Pro W3', '游明朝', 'YuMincho', 'ＭＳ Ｐ明朝', 'MS PMincho', 'Hiragino Mincho ProN', 'Noto Serif JP'"
 	queBox.style.fontFamily = serif;
 	fontRadio.innerHTML = `
 		<legend>glyph font</legend>
