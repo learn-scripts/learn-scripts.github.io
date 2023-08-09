@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>Learn Siddhaṃ</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Flashcards for learning and practicing Siddhaṃ">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>
+			const charsets = [
+				{name:'vowels',
+				chars:[
+					"𑖀", "a",
+					"𑖂", "i",
+					"𑖄", "u",
+					"𑖆", "ṛ",
+					"𑖈", "ḷ",
+					"𑖊", "e",
+					"𑖌", "o",
+					"𑖁", "ā",
+					"𑖃", "ī",
+					"𑖅", "ū",
+					"𑖇", "ṝ",
+					"𑖉", "ḹ",
+					"𑖋", "ai",
+					"𑖍", "au",
+          "𑖀𑖽", "aṃ",
+          "𑖀𑖾", "aḥ"], checked: true,},
+
+				{name:"vowel diacritics",
+				chars:[
+					"𑖰", "i",
+					"𑖲", "u",
+					"𑖴", "ṛ",
+					"𑖸", "e",
+					"𑖺", "o",
+					"𑖯", "ā",
+					"𑖱", "ī",
+					"𑖳", "ū",
+					"𑖹", "ai",
+					"𑖻", "au",
+					"𑖽", "ṃ",
+					"𑖾", "ḥ"], checked: true,},
+
+				{name:"a-column consonants",
+  				chars:[
+          "𑖎", "ka",
+          "𑖏", "kha",
+          "𑖐", "ga",
+          "𑖑", "gha",
+          "𑖒", "ṅa",
+          "𑖓", "ca",
+          "𑖔", "cha",
+          "𑖕", "ja",
+          "𑖖", "jha",
+          "𑖗", "ña",
+          "𑖘", "ṭa",
+          "𑖙", "ṭha",
+          "𑖚", "ḍa",
+          "𑖛", "ḍha",
+          "𑖜", "ṇa",
+          "𑖝", "ta",
+          "𑖞", "tha",
+          "𑖟", "da",
+          "𑖠", "dha",
+          "𑖡", "na",
+          "𑖢", "pa",
+          "𑖣", "pha",
+          "𑖤", "ba",
+          "𑖥", "bha",
+          "𑖦", "ma",
+          "𑖧", "ya",
+          "𑖨", "ra",
+          "𑖩", "la",
+          "𑖪", "va",
+          "𑖫", "śa",
+          "𑖬", "ṣa",
+          "𑖭", "sa",
+          "𑖮", "ha",
+          "𑖎𑖿𑖬", "kṣa"
+          "𑖩𑖿𑖩𑖽", "llaṃ"], checked: true,}
+        ];
+			const answerPlaceholder = "Enter Pronunciation";
+			const standardInputTypeName = "pronunciation";
+			const names = false;
+			const letterCase = false;
+		</script>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body style="text-align: center;">
+		<h1>Learn Devanagari</h1>
+		from <a href="index.html">LearnScripts</a>
+		<br><br>
+		<div id="app">
+			<div id="noapp">Not loaded. <br><br> You may be using an incompatible browser or have turned Javascript off.</div>
+		</div>
+		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript">
+			const appElem = app();
+			document.getElementById("app").innerHTML = "";
+			document.getElementById("app").appendChild(appElem);
+			update();
+		</script>
+		<h2>About Siddhaṃ</h2>
+		<h3>How to Read IAST</h3>
+		<p>The diacritic marks used in IAST are the above-dot&nbsp;(<small>&nbsp;</small><sup>·</sup><small>&nbsp;</small>), the below-dot&nbsp;(<small>&nbsp;</small><sub>.</sub><small>&nbsp;</small>), the caron (<small>&nbsp;</small>^<small>&nbsp;</small>), the tilde&nbsp;(<small>&nbsp;</small><sup>~</sup><small>&nbsp;</small>), the acute&nbsp;(<small>&nbsp;</small>´<small>&nbsp;</small>), and the macron&nbsp;(<small>&nbsp;</small>‾<small>&nbsp;</small>).</p>
+		<ul>
+			<li>A vowel with a macron above should be read as long. For example <strong lang="hi-Latn">"ā"</strong> should be read as <strong>"ah"</strong> <span lang="und-Latn-fonipa">/ɑː/</span>.</li>
+			<li>When a consonant has an dot beneath it, this means it is <a href="https://en.wikipedia.org/wiki/retroflex">
+			retroflex</a>. It should be pronounced with the tongue bent back agianst the alveolar ridge.</li>
+			<li>The <strong lang="hi-Latn">"ṅ"</strong> with the dot above is <a href="https://en.wikipedia.org/wiki/velar">velar</a>. It should be pronounced <span lang="und-Latn-fonipa">/ŋ/</span> like <strong>"ng"</strong> in English "si<strong>ng</strong>."</li>
+			<li>The <strong lang="hi-Latn">"ñ"</strong> with a tilde above is <a href="https://en.wikipedia.org/wiki/Palatal_consonant">palatal</a>. It should be pronounced <span lang="und-Latn-fonipa">/ɲ/</span>, roughly the <strong>"ny"</strong> in English "<strong>ny</strong>an cat."</li>
+			<li>The <strong lang="hi-Latn">"ś"</strong> with an acute above is another palatal. It should be pronounced <span lang="und-Latn-fonipa">/ʃ/</span>, like <strong>"sh"</strong> in English "<strong>sh</strong>ine."</li>
+			<li><strong lang="hi-Latn">"ê"</strong> and <strong lang="hi-Latn">"ô"</strong> are pronounced <span lang="und-Latn-fonipa">/æ/</span> and <span lang="und-Latn-fonipa">/ɒ/</span>, respectively.</li>
+			<li><strong lang="hi-Latn">"th"</strong> is <strong>not</strong> pronounced as in English "<span style="color: red;">th</span>orn", but as an aspirated <strong>"t"</strong> sound <span lang="und-Latn-fonipa">/t̪ʰ/</span>.</li>
+		</ul>
+	</body>
+</html>
